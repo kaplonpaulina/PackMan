@@ -36,8 +36,9 @@ h1{
 }
 
 .movingItem {
-~webkit~animation-duration: 1s;
-~webkit~animation-delay: 4s;
+~webkit~animation-duration: 5s !important;
+~webkit~animation-delay: 5s !important;
+	animation-duration: 2s !important;
 }
 
 #tilesContainter{
