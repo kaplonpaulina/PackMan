@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>users</title>
+  </head>
+  <body>
+    <h1>users:</h1>
+
+    <p>users_listed</p>
+    {% if users_listed %}
+    <ol>
+      {% for user in users_listed %}
+      <li>user info</li>
+      <ul>
+        <li>firs: {{user.first_name}} </li>
+        <li>sec: {{user.last_name}}</li>
+      </ul>
+      {% endfor %}
+    </ol>
+    {% endif %}
+  </body>
+</html>

@@ -5,5 +5,5 @@ from . import views
 app_name = 'packages'
 
 urlpatterns = [
-
+    url(r'^$',views.packages_listed,name='packages'),
 ]

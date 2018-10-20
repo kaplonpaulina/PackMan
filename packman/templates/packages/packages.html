@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>packages</title>
+  </head>
+  <body>
+    <h1>packages:</h1>
+    {% if packages_listed %}
+    <ol>
+      {% for package in packages_listed %}
+      <li>pack info</li>
+      <ul>
+        <li>firs: {{package.sender_id}} </li>
+        <li>sec: {{package.driver_id}}</li>
+      </ul>
+      {% endfor %}
+    </ol>
+    {% endif %}
+  </body>
+</html>
