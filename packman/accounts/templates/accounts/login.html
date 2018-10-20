@@ -2,21 +2,12 @@
 {% load bootstrap3 %}
 
 {% block content %}
-<div id="wrapper">
-	<div id="logoContainer">
-		<div class = "movingItem animated ">
-			<img src="/static/css/img/logo_png.png" alt="packman logo" width=50%>		
-		</div>
-	</div>
-	<div class ="movingItem animated " id="logoNameContainer">
-		<h1>PACKMAN</h1>	
-	</div>
-</div>
-<div class="container" style="width:50%;">
+<div class="container">
+    <h1>Login</h1>
     <form method="POST">
         {% csrf_token %}
         {% bootstrap_form form %}
-        <input type="submit" value="Login" class="btn tileLogin">
+        <input type="submit" value="Login" class="btn btn-default">
     </form>
 </div>
 {% endblock %}
