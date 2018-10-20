@@ -1,42 +1,9 @@
 {% extends "base.html" %}
-{% load bootstrap3 %}
-
 {% block content %}
 
-<div id="wrapper">
-	<div id="logoContainer">
-		<div class = "movingItem animated bounce">
-			<img src="/static/css/img/logo_png.png" alt="packman logo" width=50%>		
-		</div>
-	</div>
-	<div class ="movingItem animated flash" id="logoNameContainer">
-		<h1>PACKMAN</h1>	
-	</div>
+    <h1>Welcome to PackMan!</h1>
+    {# <h2>The best community for all things on outer space!</h2> #}
+    <h2>Login or Sign-up for free to get started!</h2>
 
-	<div id="tilesContainter">
-		<div class="tile">
-			 <a href="{% url 'accounts:login' %}" class="btn btn-simple">
-				login	
-			</a>
-		</div>
-		<div class="tile">
-			<a href="{% url 'accounts:signup' %}" class="btn btn-simple">
-				register
-			</a>
-		</div>
-		<div style="clear:both"></div>
-	</div>
-	
-	<br/>
-
-
-
-	
-	<!--
-	{# <h2>The best community for all things on outer space!</h2> #}
-	<h2>Login or Sign-up for free to get started!</h2>
-	-->
-
-</div>
 
 {% endblock %}
