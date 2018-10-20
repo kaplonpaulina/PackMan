@@ -3,12 +3,14 @@
 
 
 {% block content %}
-<div class="container">
+<div class="container" style="text-align: left; width: 50%; padding-top: 5%">
     <h1>Sign Up</h1>
     <form method="POST">
         {% csrf_token %}
         {% bootstrap_form form %}
-        <input type="submit" value="Sign Up" class="btn btn-default">
+        <div style="text-align: center;">
+        <input type="submit" value="Sign Up" class="btn tileLogin" >
+    	</div>
     </form>
 </div>
 {% endblock %}

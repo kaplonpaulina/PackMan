@@ -1,0 +1,98 @@
+html{
+	height: 100%;
+}
+body{
+	/*background-image: url("img/main_notlogged_background_sky.jpeg");*/
+	background: linear-gradient(0deg, rgba(255,255,255,0.65), rgba(255,255,255,0.65)), url("img/main_notlogged_background_sky.jpeg") repeat;
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	background-size: cover;
+	padding: 0;
+	margin: 0;
+}
+
+h1{
+	font-family: 'Quicksand', sans-serif;
+}
+
+#wrapper{
+	height: 100%;
+	width: 50%;
+	text-align: center;
+	margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    size: cover;
+}
+
+#logoContainer{
+	size: cover;
+}
+#logoNameContainer{
+	margin-top: 3%;
+	size: cover;
+	font-family: 'Quicksand', sans-serif;
+	color: rgba(80, 80, 80, 1);
+}
+
+.movingItem {
+~webkit~animation-duration: 1s;
+~webkit~animation-delay: 4s;
+}
+
+#tilesContainter{
+	bottom: 10px;
+	text-align: center;
+}
+
+.tile {
+	float: left;
+ 	min-width: 46%;
+ 	margin-top: 10%;
+ 	margin-left: 2%;
+ 	margin-right: 2%;
+ 	padding-left: 5%;
+ 	padding-right: 5%;
+ 	background-color: rgba(255,255,255, 0.7);
+    color: #666666;
+    border-radius: 3px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    border: none;
+}
+
+.tile:hover{
+	background-color: #ffffff;
+	color: #666666;
+	cursor: pointer;
+}
+
+
+/* login container*/
+.container{
+	text-align: center;
+	margin-left: auto;
+    margin-right: auto;
+    size: cover;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#tileLogin{
+	min-width: 46%;
+ 	margin-top: 10%;
+ 	margin-left: 2%;
+ 	margin-right: 2%;
+ 	padding-left: 5%;
+ 	padding-right: 5%;
+ 	background-color: rgba(255,255,255, 0.7);
+    color: #666666;
+    border-radius: 3px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    border: none;
+}
+.tileLogin:hover{
+	background-color: #ffffff;
+	color: #666666;
+	cursor: pointer;
+}
