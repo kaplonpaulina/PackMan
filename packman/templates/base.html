@@ -19,6 +19,26 @@
 
     <link rel="stylesheet" href="{% static 'simplesocial/css/master.css'%}">
 
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>
+            function call_counter(from, to, subject) {
+                alert("wysłano")
+                $.ajax({
+                type: 'POST',
+                url: '/accounts/send/',
+                processData: false,
+                contentType: false,
+                data: { from:$('#from').val(), to:$('#to').val(), subject:$('#subject').val()},
+                success: function () {
+                    alert("dupa");
+                },
+                error: function() {
+                    alert("kupa");
+                }
+    });
+
+            }
+       </script>
 
   </head>
 
