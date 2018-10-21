@@ -45,6 +45,6 @@ class ProfilePage(TemplateView):
 
     def get(self, request, *args, **kwargs):
 
-        packages_list = Package.objects.all()
+        packages_list = Package.objects.order_by('-date_start_of_delivery')
         user_dict = {'profile_packages':packages_list}
         return render(request, 'profile.html', context=user_dict)
