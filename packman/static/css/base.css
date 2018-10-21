@@ -3,7 +3,7 @@ html{
 }
 body{
 	/*background-image: url("img/main_notlogged_background_sky.jpeg");*/
-	background: linear-gradient(0deg, rgba(255,255,255,0.65), rgba(255,255,255,0.65)), url("img/main_notlogged_background_sky.jpeg") repeat;
+	background: linear-gradient(0deg, rgba(255,255,255,0.65), rgba(255,255,255,0.65)), url("/static/css/img/main_notlogged_background_sky.jpeg") repeat;
 	background-repeat: no-repeat;
 	background-position: right bottom;
 	background-size: cover;
@@ -97,3 +97,56 @@ h1{
 	color: #666666;
 	cursor: pointer;
 }
+
+.searchContainer{
+	float: left;
+	
+	min-height: 450px;
+	padding-top: 3%;
+	padding-bottom: : 3%;
+	margin-left: 2%;
+	margin-right: 2%;
+	background-color: rgba(255,255,255,0.7);
+}
+#leftContainer{
+	width: 36%;
+}
+#rightContainer{
+	width: 56%;
+}
+
+.resultTile{
+	height: 84px;
+	margin: 2%;
+	padding: 2%;
+	font-size: 16px;
+	background-color: rgb(255,255,255,1);
+	text-align: left;
+}
+
+#popUpWindow {
+    position: fixed;
+    top: 20%;
+    width: 100%;
+    height: 100%;
+    display: none;
+    color: #AAAAAA;
+}
+
+.popup_inner{
+	position: fixed;
+    /*background-color: #ffffff;*/
+    background-color: rgba(255, 255, 255, 1);
+    width: 50%;
+    height: auto;
+    
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    
+    padding: 10px;
+    border-radius: 10px;
+    
+    text-align: center;
+}
+

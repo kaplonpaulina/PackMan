@@ -24,5 +24,7 @@ urlpatterns = [
     url(r"^admin/", admin.site.urls),
     url(r"^accounts/", include("accounts.urls", namespace="accounts")),
     url(r"^accounts/", include("django.contrib.auth.urls")),
-    url(r"^packages/", include("packages.urls", namespace="packages")),
+    url(r'^packages/', include("packages.urls")),
+    url(r"^sender/$", views.SenderPage.as_view(), name="sender"),
+    url(r"^profile/$", views.ProfilePage.as_view(), name="profile"),
 ]

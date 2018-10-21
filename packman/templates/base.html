@@ -17,8 +17,14 @@
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
-    <link rel="stylesheet" href="{% static 'simplesocial/css/master.css'%}">
+    <link rel="stylesheet" href="{% static 'css/base.css'%}">
+    
 
+    <!-- Animated feature - moving logo and name-->
+    <link href="{% static 'css/animate.css'%}" rel="stylesheet"/>
+    
+    <!-- Fonts for logo from GoogleFonts-->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"> 
 
   </head>
 
@@ -26,26 +32,26 @@
   <body>
 
     <nav class="navbar  mynav" role="navigation" id="navbar">
-    			<div class="container">
+          <div class="container">
 
-            <a class="navbar-brand mynav" href="{% url 'home' %}">PackMan</a>
+            <a class="navbar-brand mynav" href="{% url 'home' %}" style="font-family: 'Quicksand', sans-serif;">PACKMAN</a>
 
-    					<ul class="nav navbar-nav navbar-right">
-    						{% if user.is_authenticated %}
+              <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
 
 
                       <li><a href="{% url 'accounts:logout' %}" class="btn btn-simple">Log out</a></li>
-    						{% else %}
-    						      <li><a href="{% url 'accounts:login' %}" class="btn btn-simple">Log in</a></li>
-    						      <li><a href="{% url 'accounts:signup' %}" class="btn btn-simple">Sign up</a></li>
-    						{% endif %}
-    					</ul>
+                {% else %}
+                      <!--<li><a href="{% url 'accounts:login' %}" class="btn btn-simple">Log in</a></li>
+                      <li><a href="{% url 'accounts:signup' %}" class="btn btn-simple">Sign up</a></li>-->
+                {% endif %}
+              </ul>
 
 
 
-    			</div>
-    		</nav>
-        <div class="container mycontent">
+          </div>
+        </nav>
+        <div class="container mycontent" id="mainContainer">
           {% block content %}
 
           {% endblock %}
@@ -60,4 +66,24 @@
 
   </body>
   <script src="{% static "simplesocial/js/master.js"%}" type="text/javascript" ></script>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+            function call_counter(from, to, subject) {
+                $.ajax({
+                type: 'POST',
+                url: '/accounts/send/',
+                processData: false,
+                contentType: false,
+                data: { from:$('#from').val(), to:$('#to').val(), subject:$('#subject').val()},
+               success: function () {
+                    document.getElementById('change').innerHTML = '<h1>You have booked the route</h1>';
+                    event.preventDefault();
+                },
+            
+    });
+
+            }
+ </script>
 </html>

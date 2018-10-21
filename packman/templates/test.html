@@ -1,12 +1,224 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container">
-  <h1>You are now logged in!</h1>
+{% load bootstrap3 %}
 
+<div class="container" style="margin-top:10%">
+
+	<!--<h1>You are now logged in!</h1> -->
+	<div id="popUpWindow">
+    	<div class="popup_inner" id="popup_inner">
+    		<div id="logowanie">
+			<a onclick="closePopUp(event)" style="text-align: right;"> 
+				BACK
+			</a>
+			<div id="change">
+				<h1 style="color: #666666;">Are you sure you want to book this route?</h1>
+				<h3>
+					DRIVER ID<br/>
+					DATE and TIME<br/>
+					FROM and TO<br/>
+					PRICE<br/>
+				</h3>
+
+				<br/>
+				<button type="submit" class="btn btn-simple" style="color: #666666;" onclick="call_counter('x','y','z');"> {%csrf_token%} confirm</button>
+			</div>
+			</div> 
+		</div>    
+    </div>
+
+
+	<div id="leftContainer" class="searchContainer">
+		<!--<iframe src="//www.blablacar.com/widget/EN_WIDGET_PSGR" style="border:0px; padding:2%;" " height="270px" frameborder="0" scrolling="no"></iframe> -->
+
+		<div class="bootstrap-iso" >
+		   <div>
+
+		     <h1>find the route</h1>
+		     <h4 style="padding: 1%">tell us where you want to transport your package</h4>
+		     <div class="jumbotron" style="background-color: rgba(255,255,255,0);">
+		       <form id="issueInputForm" method="post">
+		          {%csrf_token%} 
+		         {{ bla }}
+		          <div class="form-group">
+		           <label for="fromInput">From</label>
+		           <input type="text" class="form-control" id="fromInput" placeholder="From ...">
+		         </div>
+		         <div class="form-group">
+		           <label for="toInput">To</label>
+		           <input type="text" class="form-control" id="toInput" placeholder="To...">
+		         </div>
+
+		         <div class="form-group">
+		           <label class="control-label" for="dateInput">Date</label>
+		           <input class="form-control" id="dateInput" name="dateInput" placeholder="MM/DD/YYY" type="text"/>
+
+
+		         </div>
+ 				<a onclick="find(event)""> 
+		         <button type="submit" class="btn btn-simple">Find</button>
+		       	</a>
+		       </form>
+		     </div>
+
+		     <div class="col-lg-12">
+		       <div id="issuesList">
+
+		       </div>
+		     </div>
+
+		   </div>
+		 </div>
+	</div>
+	
+	<div id="rightContainer" class="searchContainer">
+		<div class="resultTile" id="tile1">
+			
+			<img src="/static/css/img/logo_png.png" alt="packman logo" width=10% style="float:left;">
+			<div id="info1"></div>
+			<a onclick="showPopUp(event)">
+				<button type="submit" class="btn btn-simple" style="padding-right: 20px; float:right; font-size: 26px; color: #ffffff; background-color: rgba(235, 200, 0, 1); letter-spacing: 2px;">book</button>
+			</a>
+			<div id="info1_2"></div>
+			<div style="clear:both"></div>
+			</div>
+
+		<div class="resultTile" id="tile2">
+
+			<img src="/static/css/img/logo_png.png" alt="packman logo" width=10% style="float:left;">
+			<div id="info2"></div>
+			<a onclick="showPopUp(event)">
+				<button type="submit" class="btn btn-simple" style="padding-right: 20px; float:right; font-size: 26px; color: #ffffff; background-color: rgba(235, 200, 0, 1); letter-spacing: 2px;">book</button>
+			</a>
+			<div id="info2_2"></div>
+			<div style="clear:both"></div>
+		
+		</div>
+		
+
+		<div class="resultTile" id="tile3">
+			
+			<img src="/static/css/img/logo_png.png" alt="packman logo" width=10% style="float:left;">
+			<div id="info3"></div>
+			<a onclick="showPopUp(event)">
+				<button type="submit" class="btn btn-simple" style="padding-right: 20px; float:right; font-size: 26px; color: #ffffff; background-color: rgba(235, 200, 0, 1); letter-spacing: 2px;">book</button>
+			</a>
+			<div id="info3_2"></div>
+			<div style="clear:both"></div>
+
+
+		</div>
+
+		<div class="resultTile" id="tile4">
+			
+			<img src="/static/css/img/logo_png.png" alt="packman logo" width=10% style="float:left;">
+			<div id="info4"></div>
+			<a onclick="showPopUp(event)">
+				<button type="submit" class="btn btn-simple" style="padding-right: 20px; float:right; font-size: 26px; color: #ffffff; background-color: rgba(235, 200, 0, 1); letter-spacing: 2px;">book</button>
+			</a>
+			<div id="info4_2"></div>
+			<div style="clear:both"></div>
+
+
+		</div>
+
+		<div class="resultTile" id="tile5">
+			
+
+			<img src="/static/css/img/logo_png.png" alt="packman logo" width=10% style="float:left;">
+			<div id="info5"></div>
+			<a onclick="showPopUp(event)">
+				<button type="submit" class="btn btn-simple" style="padding-right: 20px; float:right; font-size: 26px; color: #ffffff; background-color: rgba(235, 200, 0, 1); letter-spacing: 2px;">book</button>
+			</a>
+			<div id="info5_2"></div>
+			<div style="clear:both"></div>
+			</div>
+
+
+
+		</div>
+	<br/>
+	</div>
+	
+	<div style="clear:both"></div>
+
+<!--	<div class = "movingItem animated bounce" style="padding-top: 10%">
+			<img src="/static/css/img/logo_png.png" alt="packman logo" width=10%>
+	</div>>
+-->
 
 </div>
 
 
 
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+<script>
+    $(document).ready(function(){
+      var date_input=$('input[name="dateInput"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'mm/dd/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+</script>
+
+
+   {# <script src="chance.js"></script> #}
+   <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+   <!-- Latest compiled and minified JavaScript -->
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+   {# <script src="main.js"></script> #}
+   <!--  jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
+<!--<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />-->
+
+<!-- Bootstrap Date-Picker Plugin -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+{# <script src="{% static 'packman/js/master.js'%}" type="text/javascript" ></script> #}
+{# <script src="{% static 'packman/js/chance.js'%}" type="text/javascript" ></script> #}
+
+<script>
+	function showPopUp(event) {
+    event.preventDefault();
+    document.getElementById('popUpWindow').style.display = 'block';
+	}
+
+	function closePopUp(event) {
+    event.preventDefault();
+    document.getElementById('popUpWindow').style.display = 'none';
+	}
+
+	function find(event){
+	event.preventDefault();
+	document.getElementById('info5').innerHTML = "<div style='padding-left: 20px; float:left;''>WARSAW - CRACOW<br/>30 OCTOBER 2018,  20 : 00</div><div style='padding-left: 20px; float:left;''></div>";
+	document.getElementById('info5_2').innerHTML = "<div style='padding-right: 20px; float:right; font-size: 32px; color: #000000;'>9 EUR</div>";
+	document.getElementById('info4').innerHTML = "<div style='padding-left: 20px; float:left;''>GDANSK - KIELCE<br/>30 OCTOBER 2018,  17 : 00</div><div style='padding-left: 20px; float:left;''></div>";
+	document.getElementById('info4_2').innerHTML = "<div style='padding-right: 20px; float:right; font-size: 32px; color: #000000;'>11 EUR</div>";
+	
+	document.getElementById('info3').innerHTML = "<div style='padding-left: 20px; float:left;''>WARSAW - CRACOW<br/>30 OCTOBER 2018,  11 : 15</div><div style='padding-left: 20px; float:left;''></div>";
+	document.getElementById('info3_2').innerHTML = "<div style='padding-right: 20px; float:right; font-size: 32px; color: #000000;'>8 EUR</div>";
+	
+	document.getElementById('info2').innerHTML = "<div style='padding-left: 20px; float:left;''>POZNAN - CRACOW<br/>30 OCTOBER 2018,  09 : 20</div><div style='padding-left: 20px; float:left;''></div>";
+	document.getElementById('info2_2').innerHTML = "<div style='padding-right: 20px; float:right; font-size: 32px; color: #000000;'>10 EUR</div>";
+	
+	document.getElementById('info1').innerHTML = "<div style='padding-left: 20px; float:left;''>WARSAW - PRAGUE<br/>30 OCTOBER 2018,  10 : 30</div><div style='padding-left: 20px; float:left;''></div>";
+	document.getElementById('info1_2').innerHTML = "<div style='padding-right: 20px; float:right; font-size: 32px; color: #000000;'>7 EUR</div>";
+	}
+</script>
+
+
 
 {% endblock %}
+
+
