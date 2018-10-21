@@ -9,11 +9,13 @@
     {% if packages_listed %}
     <ol>
       {% for package in packages_listed %}
+      {% if package.sender_id == 'dwa'%}
       <li>pack info</li>
       <ul>
         <li>firs: {{package.sender_id}} </li>
         <li>sec: {{package.driver_id}}</li>
       </ul>
+      {% endif %}
       {% endfor %}
     </ol>
     {% endif %}

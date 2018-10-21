@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+{% if sender %}
+
+<h1>SENDER!</h1>
+  {{sender.username}}
+  {{sender.first_name}}
+  {{sender.last_name}}
+  {{sender.email}}
+ {% else %}
+<h1>NO SENDER! :(</h1>
+
+{% endif %}
+
+{% if no_sender %}
+
+  <p>Ups...</p>
+
+{% endif %}
+
+{% endblock %}
