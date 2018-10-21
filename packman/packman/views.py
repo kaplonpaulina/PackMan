@@ -2,6 +2,7 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.views.generic import TemplateView
 from django.contrib.auth.models import User
+from packages.models import Package
 from django.shortcuts import render
 
 class TestPage(TemplateView):
@@ -38,3 +39,12 @@ class SenderPage(TemplateView):
             message = 'You submitted nothing!'
         print(message)
         return super().get(request, *args, **kwargs)
+
+class ProfilePage(TemplateView):
+    template_name = 'profile.html'
+
+    def get(self, request, *args, **kwargs):
+
+        packages_list = Package.objects.all()
+        user_dict = {'profile_packages':packages_list}
+        return render(request, 'profile.html', context=user_dict)
